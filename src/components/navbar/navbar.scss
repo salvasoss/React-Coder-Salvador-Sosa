@@ -1,0 +1,31 @@
+.navContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 0px 7px 10px 0px rgba(0,0,0,0.3);
+  
+  
+  }
+
+  .linksContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+    align-items: center;
+  }
+  
+  .link {
+    text-decoration: none;
+    color: black;
+  
+    &:hover {
+      font-weight: bold;
+    }
+  
+  }
+
+  .logo {
+    width: 12rem;
+  }
