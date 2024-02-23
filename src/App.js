@@ -6,7 +6,7 @@ function App() {
   return (
       <div>
         <Navbar/> 
-        <ItemListContainer greeting = " SEX DESAYUNO DE FACKINGs BESTIAs, compren HUDSON" />
+        <ItemListContainer greeting = " Bienvenidos a Hudson Custom Garage, una marca para los apasionados del mundo motor! " />
       </div>
   );
 } 
