@@ -1,15 +1,17 @@
 import "./navbar.scss";
 import CartWidget from "../cartWidget/CartWidget";
-const Navbar = () => {
+import { NavLink} from "react-router-dom";
+
+const NavBar = () => {
     return (
         <div>
             <nav className="navContainer">
-                <a  href="/"> <img className="logo" src="../img/log chicp.png" alt="logo" /> </a>
+                <NavLink  to="/"> <img className="logo" src="../img/log chicp.png" alt="logo" /> </NavLink>
 
                 <div className="linksContainer">
-                    <a className="link" href="/"> PRODUCTOS  </a>
-                    <a className="link" href="/"> DESTACADOS </a>
-                    <a className="link" href="/">  CONTACTO  </a>
+                    <NavLink className="link" to="/category/productos"> PRODUCTOS  </NavLink>
+                    <NavLink className="link" to="/category/destacados"> DESTACADOS </NavLink>
+                    <NavLink className="link" to="/contacto">  CONTACTO  </NavLink>
                 </div>
 
                 <CartWidget/> 
@@ -17,4 +19,4 @@ const Navbar = () => {
         </div>
     )
 } 
-export default Navbar;
+export default NavBar;

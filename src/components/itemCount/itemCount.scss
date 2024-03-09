@@ -1,0 +1,25 @@
+.itemCountContainer {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+
+    .itemRestar {
+        padding: 4px;
+        color: red;
+    }
+
+    .count {
+        font-weight: bold;
+    }
+
+    .itemSumar {
+        padding: 4px;
+        color: rgb(0, 170, 0);
+    }
+
+}
+
+.itemComprar {
+    background-color: red;
+}
+

@@ -1,0 +1,45 @@
+*{
+    font-size: 62,5%;
+}
+
+.itemCard {
+    width: 20vw;
+    border: 3px solid #0f1452;
+    border-radius: 3px;
+
+    .cardImageTop {
+        width: 100%;
+    }
+
+    .cardBody {
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .cardTitle{
+            font-size: 1.5rem;
+        }
+    
+        p {
+            font-size: 1.2rem;
+            padding: .3rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: .3rem;
+            background-color: #0f1452;
+            &:hover {
+                 text-decoration: underline;
+            }
+        }
+    }
+
+    
+  }
+
+
+

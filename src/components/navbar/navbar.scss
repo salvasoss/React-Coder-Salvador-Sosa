@@ -10,9 +10,8 @@
     justify-content: space-around;
     width: 100%;
     align-items: center;
-    box-shadow: 0px 7px 10px 0px rgba(0,0,0,0.3);
-  
-  
+    background-color: #0f1452;
+    box-shadow: 0px 7px 10px 0px rgba(0,0,0,0.4);
   }
 
   .linksContainer {
@@ -24,14 +23,16 @@
   
   .link {
     text-decoration: none;
-    color: black;
+    color: #fff;
+    font-weight: 300;
   
     &:hover {
-      font-weight: bold;
+      font-weight: 500;
     }
   
   }
 
   .logo {
     width: 12rem;
+    padding: .7rem 0 .7rem 0;
   }
