@@ -6,7 +6,7 @@
          price: 15000, 
          description: "Remera John Player Special Team Lotus, 100% algodon peinado y calidad de estampa altisima",
          image: "../img/remera negra JSP.jpg", 
-         categoria: "destacados" }, 
+         category: "Destacados" }, 
     
         {id: 2,
          name: "Remera Aguila",
@@ -14,7 +14,7 @@
          price: 15000, 
          description: "Remera Hudson Custom Motorcycle, 100% algodon peinado y calidad de estampa altisima",
          image: "../img/aguila atras.jpg", 
-         categoria: "destacados" },  
+         category: "Destacados" },  
          {
             id: 3,
             name: "Remera Camel",
@@ -22,7 +22,7 @@
             price: 20000,
             description: "Remera Camel cigarrillos, un clasico de Hudson realmente exclusivo y que no salio oficialmente a la venta",
             image: "../img/remera negra camel atras.jpg", 
-            categoria: "productos",
+            category: "Productos",
          },
 
          {
@@ -32,7 +32,7 @@
             price: 20000,
             description: "Remera Calavera Motorcycle, un clasico de Hudson realmente exclusivo y que no salio oficialmente a la venta",
             image: "../img/remera negra calavera atras.jpg", 
-            categoria: "productos",
+            category: "Productos",
          }
     ]
 
@@ -46,8 +46,8 @@
                resolve (products)
                
             }
-         })
-      }, 2000)
+         }, 2000)
+      })
    }
 
    
@@ -58,7 +58,7 @@
             if (error) {
                reject ("Error!")
             }else {
-               let product = products.find ((item) => item.id === id) 
+               let product = products.find ((item) => item.id === Number(id)) 
                resolve (product)
             }
          }, 2000)

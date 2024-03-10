@@ -1,25 +1,52 @@
-.itemCountContainer {
+.itemCounter-AddChart {
     display: flex;
-    justify-content: center;
-    justify-content: space-around;
+    flex-direction: column;
 
-    .itemRestar {
-        padding: 4px;
-        color: red;
+    .itemCountContainer {
+        display: flex;
+        justify-content: center;
+        justify-content: space-evenly;
+        margin-bottom: .7rem;
+    
+        .itemRestar {
+            padding: 5px 9px;
+            color: rgb(255, 255, 255);
+            background-color: #0f1452;
+            font-size: 1.2rem;
+            cursor: pointer;
+    
+        }
+    
+        .count {
+            font-weight: bold;
+        }
+    
+        .itemSumar {
+            padding: 5px 8px;
+            color: rgb(255, 255, 255);
+            background-color: #0f1452;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+    
     }
+    
+    .itemAddChartContainer {
+        display: flex;
+        justify-content: center;
 
-    .count {
-        font-weight: bold;
+        button{
+            background-color: #0f1452;
+            color: white;
+            padding: 1rem;
+            width: 80%;
+            &:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
     }
-
-    .itemSumar {
-        padding: 4px;
-        color: rgb(0, 170, 0);
-    }
-
 }
 
-.itemComprar {
-    background-color: red;
-}
+
 

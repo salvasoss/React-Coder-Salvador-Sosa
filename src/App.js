@@ -13,6 +13,7 @@ function App() {
           <Route path='/' element={<ItemListContainer greeting="Bienvenidos a Hudson Custom Garage, una marca para los apasionados del mundo motor!" />} />
           <Route path= "/category/:categoryId" element = {<ItemListContainer greeting = "Categoria: " />} />
           <Route path='/item/:itemId' element={<ItemDetailContainer />} />
+          <Route path="/contacto" element= { <h1 style={{textAlign : "center", fontSize : "2rem"}}> En construccion...</h1>}/>
         </Routes>
       </BrowserRouter>
 
