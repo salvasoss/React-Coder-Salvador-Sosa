@@ -3,6 +3,9 @@ import { useState, useEffect } from "react"
 import { ItemDetail } from "../itemDetail/ItemDetail"
 import { getProducts, getOneProduct } from "../../mock/hudsonFakeApi"
 import { useParams } from "react-router-dom"
+import { Loader } from "../loader/Loader"
+import { collection, doc, getDoc } from "firebase/firestore"
+import { db } from "../../services/firebase"
 
  const ItemDetailContainer = () => {
     //usamos PARAMS para traer el id del producto del parametro de la URL que pusimos 
@@ -29,17 +32,34 @@ import { useParams } from "react-router-dom"
 
     ///Funcion que trae 1 producto, es decir, trae un objeto y no un array
 
+    //  useEffect (() => {
+    //     setLoading(true)
+    //      getOneProduct (itemId)
+    //      .then((res) => setProducto(res))
+    //      .catch ((error) => console.log(error))
+    //      .finally (() => setLoading(false))
+         
+    //  }, [])
+
+     //FIREBASE 
+
      useEffect (() => {
         setLoading(true)
-         getOneProduct (itemId)
-         .then((res) => setProducto(res))
-         .catch ((error) => console.log(error))
-         .finally (() => setLoading(false))
-         
-     }, [])
+        //traer collection
+        const collectionProducts = collection (db, "productos")
+        // crear referencia 
+        const referenciaDoc = doc (collectionProducts, itemId)
+
+        //Traer el documento
+
+        getDoc (referenciaDoc)
+        .then ((res) => setProducto ({id:res.id, ...res.data ()}))
+        .catch ((error) => console.log(error))
+        .finally (() => setLoading(false))
+     },[itemId])
 
      if (loading) {
-        return <h2 style={{fontWeight : "bold", fontSize : "2rem", textAlign: "center"} }> CARGANDO...</h2>
+        return <Loader/>
     }
 
     return (

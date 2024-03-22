@@ -2,7 +2,9 @@ import "./navbar.scss";
 import CartWidget from "../cartWidget/CartWidget";
 import { NavLink} from "react-router-dom";
 
+
 const NavBar = () => {
+
     return (
         <div>
             <nav className="navContainer">
@@ -14,7 +16,7 @@ const NavBar = () => {
                     <NavLink className="link" to="/contacto">  CONTACTO  </NavLink>
                 </div>
 
-                <CartWidget/> 
+                 <NavLink to = "/carrito" style={{textDecoration:'none'}} > <CartWidget counter={1}/>  </NavLink>
             </nav>
         </div>
     )

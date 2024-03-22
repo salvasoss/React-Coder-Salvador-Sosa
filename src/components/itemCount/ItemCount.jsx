@@ -2,13 +2,9 @@ import React from "react";
 import { useState } from "react";
 import "./itemCount.scss";
 
-export const ItemCount = ({ stock }) => {
+export const ItemCount = ({ stock, onAdd }) => {
 
     const [count, setCount] = useState(1)
-
-    const onAdd = () => {
-        console.log("Compraste un item ");
-    }
 
     const sumar = () => {
         if (count < stock) {
@@ -22,6 +18,10 @@ export const ItemCount = ({ stock }) => {
         }
     }
 
+    const enviarCantidad = () =>{
+        onAdd(count)
+    }
+
     return (
         <>
             <div className="itemCounter-AddChart">
@@ -31,7 +31,7 @@ export const ItemCount = ({ stock }) => {
                     <button className="itemSumar" onClick={sumar}>+</button>
                 </div>
                 
-                <div className="itemAddChartContainer"> <button disabled={stock === 0 || count === 0} onClick={onAdd}>Agregar al carrito </button> </div>
+                <div className="itemAddChartContainer"> <button disabled={stock === 0 || count === 0} onClick={enviarCantidad}>Agregar al carrito </button> </div>
             </div>
 
         </>

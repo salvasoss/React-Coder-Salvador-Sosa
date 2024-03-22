@@ -18,7 +18,7 @@
          {
             id: 3,
             name: "Remera Camel",
-            Stock: 0,
+            stock: 0,
             price: 20000,
             description: "Remera Camel cigarrillos, un clasico de Hudson realmente exclusivo y que no salio oficialmente a la venta",
             image: "../img/remera negra camel atras.jpg", 
@@ -28,7 +28,7 @@
          {
             id: 4,
             name: "Remera Calavera",
-            Stock: 0,
+            stock: 0,
             price: 20000,
             description: "Remera Calavera Motorcycle, un clasico de Hudson realmente exclusivo y que no salio oficialmente a la venta",
             image: "../img/remera negra calavera atras.jpg", 

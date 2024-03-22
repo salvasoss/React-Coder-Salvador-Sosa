@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { ItemCount } from "../itemCount/ItemCount";
 import "./itemDetail.scss"
+import { CartContext } from "../../context/CartContext";
 
 export const ItemDetail = ({ producto }) => {
-
+    const [compra,setCompra] = useState (false)
+    const [cantidadAgregada, setCantidadAgregada] = useState (0)
+    const {addItem} = useContext (CartContext)
+    
+    const onAdd = (cantidad) => {
+        addItem (producto, cantidad)
+        setCompra (true)
+    }
+    console.log(cantidadAgregada)
     
     return (
         <div className="itemDetailContainer">
@@ -18,7 +27,7 @@ export const ItemDetail = ({ producto }) => {
                     <p> $ {producto.price} </p>
                 </div>
 
-                <ItemCount stock={producto.stock} />
+                 {compra ? <button className="goCart"> Ir al carrito </button> : <ItemCount stock={producto.stock} onAdd = {onAdd} /> }
 
                 <div className="itemDetailDescription">
                     <p className="itemDescriptionTitle"> DETALLE DEL PRODUCTO</p>
