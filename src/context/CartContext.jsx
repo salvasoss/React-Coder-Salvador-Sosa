@@ -13,9 +13,18 @@ export const CartProvider = ({children}) =>{
     const addItem = (item, quantity) =>{
         if(isInCart(item.id)){
             //Aca se tienen que sumar cantidades
-            console.log('Ya esta en el carrito')
+            const nuevoCarrito = cart.map ((compra) => {
+                if (compra.id === item.id){ //buscamos el item que se repite
+                    return {
+                        ...compra, quantity: compra.quantity + quantity // suma cantidad vieja (compra.quantity) con nueva (quantity)
+                    }
+                } else {
+                    return compra //devuelve el producto como estaba
+                }
+            })
+            //guardamos en cart
+            setCart (nuevoCarrito)
         }else{
-
             setCart([...cart,{...item, quantity}])
         }
     }
@@ -39,9 +48,18 @@ export const CartProvider = ({children}) =>{
         return cart.some((compra)=> compra.id === itemId)
     }
 
+    //suma el total de cantidades
+    const cartQuantity = () => {
+        return cart.reduce ((acum, compra) => acum += compra.quantity, 0)
+    }
+
+    //suma el total a pagar
+    const cartPriceTotal = () => {
+        return cart.reduce ((acum, compra) => acum += (compra.quantity * compra.price), 0)
+    }
     return(
         // le asiganmos el contexto que provee
-        <CartContext.Provider value={{cart,addItem, clear, removeItem, isInCart}}>
+        <CartContext.Provider value={{cart,addItem, clear, removeItem, isInCart, cartQuantity, cartPriceTotal}}>
             {children}
         </CartContext.Provider>
     )

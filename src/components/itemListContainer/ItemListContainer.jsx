@@ -34,23 +34,23 @@ export const ItemListContainer = ({ greeting }) => {
     useEffect(() => {
         setLoading(true)
         //Conectarnos con nuestra collection
-        const productsCollection = categoryId ? query (collection(db, "productos"), where ("category", "==", categoryId)) :collection(db, "productos")
+        const productsCollection = categoryId ? query(collection(db, "productos"), where("category", "==", categoryId)) : collection(db, "productos")
         //Metodo/funcion para pedir documentos dentro de la collection, DEVULEVE UNA PROMESA    
-        getDocs (productsCollection)
-        .then ((res) => {
-            const list = res.docs.map ((producto) => {
-                return {
-                    id : producto.id,
-                    ...producto.data()
-                }
+        getDocs(productsCollection)
+            .then((res) => {
+                const list = res.docs.map((producto) => {
+                    return {
+                        id: producto.id,
+                        ...producto.data()
+                    }
+                })
+                setProducts(list)
             })
-            setProducts(list)
-        })
-        .catch ((error) => console.log(error))
-        .finally (() => setLoading (false))
+            .catch((error) => console.log(error))
+            .finally(() => setLoading(false))
     }, [categoryId])
 
-    
+
     if (loading) {
         return <Loader />
     }

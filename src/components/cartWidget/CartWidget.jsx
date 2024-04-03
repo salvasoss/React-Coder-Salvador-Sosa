@@ -4,11 +4,11 @@ import { CartContext } from "../../context/CartContext";
 
 const CartWidget = ({counter}) => {
 
-    const {cart} =useContext (CartContext)
+    const {cartQuantity} =useContext (CartContext)
 
     return (
         <div>
-            <span> {cart.length} </span>
+            {cartQuantity() > 0 &&  <span> {cartQuantity()} </span>}
             <img className="cart" src="./img/carrito-de-compras.png" alt="carrito" /> 
         </div>
     )
