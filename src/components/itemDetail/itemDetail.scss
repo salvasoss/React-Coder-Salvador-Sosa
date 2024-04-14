@@ -52,5 +52,16 @@
                 }
             }
         }
+
+        .goCart {
+            text-align: center;
+            padding: .5rem;
+            background-color: #141a69;
+            text-decoration: none;
+            color: white;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 }

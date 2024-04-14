@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import "./cartView.scss"
+import { Link } from "react-router-dom";
 
 
 export const CartView = () => {
@@ -25,7 +26,10 @@ export const CartView = () => {
             </div>
             <div className="checkout">   
             <p className="totalAmount">Total a pagar: ${cartPriceTotal()}</p>
+
             <button onClick={clear} className="buttonClearCart"> Vaciar Carrito</button>
+            <Link className="buttonCheckout" to= "/checkout"> Finalizar Compra</Link>
+        
             </div>
             
         </div>

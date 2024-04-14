@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { ItemCount } from "../itemCount/ItemCount";
 import "./itemDetail.scss"
 import { CartContext } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
 export const ItemDetail = ({ producto }) => {
     const [compra,setCompra] = useState (false)
@@ -27,7 +28,7 @@ export const ItemDetail = ({ producto }) => {
                     <p> $ {producto.price} </p>
                 </div>
 
-                 {compra ? <button className="goCart"> Ir al carrito </button> : <ItemCount stock={producto.stock} onAdd = {onAdd} /> }
+                 {compra ? <Link to= "/carrito" className="goCart"> IR AL CARRITO  </Link>  : <ItemCount stock={producto.stock} onAdd = {onAdd} /> }
 
                 <div className="itemDetailDescription">
                     <p className="itemDescriptionTitle"> DETALLE DEL PRODUCTO</p>

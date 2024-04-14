@@ -1,0 +1,33 @@
+h4{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+    input {
+        padding: .3rem;
+        border: 1px solid black;
+        width: 20vw;
+        &:hover {
+            border: 1px solid red;
+        }
+    }
+    .submit {
+        margin: 1rem;
+        background-color: #0f1452;
+        color: white;
+        padding: .4rem;
+        border-radius: 3px;
+        font-size: 1.4rem;
+        cursor: pointer;
+        :hover{
+            text-decoration: underline;
+        }
+    }
+}
