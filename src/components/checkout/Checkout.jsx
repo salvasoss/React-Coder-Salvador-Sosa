@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export const Checkout = () => {
 
-    //funcion dinamica
+  
     const [user, setUser] = useState({})
     const [validateEmail, setValidateEmail] = useState("")
     const { cart, cartPriceTotal, clear } = useContext(CartContext)
@@ -17,7 +17,7 @@ export const Checkout = () => {
         setUser(
             {
                 ...user,
-                [e.target.name]: e.target.value // [clave]:valor 
+                [e.target.name]: e.target.value 
             }
         )
     }
@@ -30,25 +30,20 @@ export const Checkout = () => {
         } else if (user.email !== validateEmail) {
             alert("Los mails deben ser iguales")
         } else {
-
-            //objeto de la orden
             let order = {
                 user,
                 items: cart,
                 total: cartPriceTotal(),
                 date: serverTimestamp()
             }
-            //nuestra coleccion
             const ventas = collection(db, "orders")
-            //agregamos la coleccion
             addDoc(ventas, order)
                 .then((res) => {
-                    //actualizar el stock
                     cart.forEach(item => {
-                        const docRef = doc(db, "productos", item.id)  //traer un documento de firebase: (db, coleccion, producto a cambiar) 
-                        getDoc(docRef) //item traido de la coleccion
+                        const docRef = doc(db, "productos", item.id)  
+                        getDoc(docRef) 
                             .then((dbDoc) => {
-                                updateDoc(docRef, { stock: dbDoc.data().stock - item.quantity }) //actualizacion del stock del item 
+                                updateDoc(docRef, { stock: dbDoc.data().stock - item.quantity }) 
                             })
                     })
                     setOrderId(res.id)

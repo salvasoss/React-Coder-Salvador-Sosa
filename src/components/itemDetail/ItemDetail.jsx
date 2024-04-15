@@ -13,7 +13,7 @@ export const ItemDetail = ({ producto }) => {
         addItem (producto, cantidad)
         setCompra (true)
     }
-    console.log(cantidadAgregada)
+   
     
     return (
         <div className="itemDetailContainer">

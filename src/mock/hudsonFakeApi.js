@@ -50,7 +50,7 @@
    }
 
    
-   export const getOneProduct = (id) => { //id= parametro a ingresar en la promesa
+   export const getOneProduct = (id) => {
       let error = false
       return new Promise ((resolve, reject) => {
          setTimeout (() => {
