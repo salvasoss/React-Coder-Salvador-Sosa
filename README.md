@@ -21,3 +21,7 @@ Proyecto de ecommerce de una marca de ropa para Curso de React JS de Coderhouse
   - [React Spinners](https://www.davidhu.io/react-spinners/): Libreria de componentes spinners
  
   # Desarrollado por Salvador Sosa 🤘
+  ## Programador Frontend
+  - HTML y CSS
+  - Javascript
+  - React JS (en proceso)
