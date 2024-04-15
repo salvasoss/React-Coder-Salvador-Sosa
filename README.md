@@ -10,10 +10,6 @@ Proyecto de ecommerce de una marca de ropa para Curso de React JS de Coderhouse
 - Ejecute npm install para instalar dependencias
 - Ejecute npm start para levantar el proyecto de manera local
 
-  ### Version Host 🌐
-
-  [Hudson Custom Garage WEB]()
-
   ### Librerias utilizadas
 
   - [Firebase](https://firebase.google.com/): Utilizada como base de datos del proyecto

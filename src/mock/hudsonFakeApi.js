@@ -1,6 +1,6 @@
 
-    const products = [
-        {id: 1,
+     export const productsData = [
+      {
          name: "Remera JPS",
          stock: 20,
          price: 15000, 
@@ -8,7 +8,7 @@
          image: "../img/remera negra JSP.jpg", 
          category: "Destacados" }, 
     
-        {id: 2,
+        {
          name: "Remera Aguila",
          stock: 24,
          price: 15000, 
@@ -16,9 +16,8 @@
          image: "../img/aguila atras.jpg", 
          category: "Destacados" },  
          {
-            id: 3,
             name: "Remera Camel",
-            stock: 0,
+            stock: 7,
             price: 20000,
             description: "Remera Camel cigarrillos, un clasico de Hudson realmente exclusivo y que no salio oficialmente a la venta",
             image: "../img/remera negra camel atras.jpg", 
@@ -26,14 +25,14 @@
          },
 
          {
-            id: 4,
             name: "Remera Calavera",
-            stock: 0,
+            stock: 5,
             price: 20000,
             description: "Remera Calavera Motorcycle, un clasico de Hudson realmente exclusivo y que no salio oficialmente a la venta",
             image: "../img/remera negra calavera atras.jpg", 
             category: "Productos",
-         }
+         },
+
     ]
 
    export const getProducts = () => {
@@ -43,7 +42,7 @@
             if (error) {
                reject ("Hubo un error, intente mas tarde")
             } else {
-               resolve (products)
+               resolve (productsData)
                
             }
          }, 2000)
@@ -58,7 +57,7 @@
             if (error) {
                reject ("Error!")
             }else {
-               let product = products.find ((item) => item.id === Number(id)) 
+               let product = productsData.find ((item) => item.id === Number(id)) 
                resolve (product)
             }
          }, 2000)

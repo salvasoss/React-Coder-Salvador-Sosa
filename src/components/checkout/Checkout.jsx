@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import "./checkout.scss";
 import { CartContext } from "../../context/CartContext";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, getDoc, serverTimestamp, updateDoc, doc } from "firebase/firestore";
 import { db } from "../../services/firebase";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
 export const Checkout = () => {
 
@@ -11,7 +11,7 @@ export const Checkout = () => {
     const [user, setUser] = useState({})
     const [validateEmail, setValidateEmail] = useState("")
     const { cart, cartPriceTotal, clear } = useContext(CartContext)
-    const  [orderId, setOrderId ] = useState("")
+    const [orderId, setOrderId] = useState("")
 
     const userData = (e) => {
         setUser(
@@ -21,15 +21,16 @@ export const Checkout = () => {
             }
         )
     }
-    console.log(user)
+
 
     const finalizarCompra = (e) => {
         e.preventDefault()
-        if (!user.name && !user.lastname && !user.phone && !user.email ) {
+        if (!user.name || !user.lastname || !user.email || !user.phone) {
             alert("Los campos son obligatorios")
         } else if (user.email !== validateEmail) {
-            alert("Los mails deben ser iguales" )
+            alert("Los mails deben ser iguales")
         } else {
+
             //objeto de la orden
             let order = {
                 user,
@@ -42,6 +43,14 @@ export const Checkout = () => {
             //agregamos la coleccion
             addDoc(ventas, order)
                 .then((res) => {
+                    //actualizar el stock
+                    cart.forEach(item => {
+                        const docRef = doc(db, "productos", item.id)  //traer un documento de firebase: (db, coleccion, producto a cambiar) 
+                        getDoc(docRef) //item traido de la coleccion
+                            .then((dbDoc) => {
+                                updateDoc(docRef, { stock: dbDoc.data().stock - item.quantity }) //actualizacion del stock del item 
+                            })
+                    })
                     setOrderId(res.id)
                     clear()
                 })
@@ -57,7 +66,7 @@ export const Checkout = () => {
                         <h5> tu orden es: {orderId}</h5>
                         <Link to="/"> Volver a navegar </Link>
                     </div>
-                    : 
+                    :
                     <div>
                         <h4> Completa el formulario con tus datos</h4>
                         <form className="form" onSubmit={finalizarCompra}>
@@ -68,10 +77,11 @@ export const Checkout = () => {
                             <input type="email" name="second-email" placeholder="Repita su correo" onChange={(e) => setValidateEmail(e.target.value)} />
 
 
-                            <button className="submit" type="submit"> Enviar </button>
+                            <button className="submit" type="submit" > Enviar </button>
                         </form>
                     </div>
             }
         </div>
     )
+
 }
